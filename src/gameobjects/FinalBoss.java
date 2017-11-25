@@ -164,31 +164,43 @@ public class FinalBoss extends Human {
         if (getState() == NOBEHURT && (System.nanoTime() / 10000000) % 2 != 1) {
 //            System.out.println("Plash...");
         } else {
-if(attackType[attackIndex].equals("NONE")){
-                if(getDirection() == RIGHT_DIR){
+
+            if (attackType[attackIndex].equals("NONE")) {
+                // xét hướng của hero để tấn công
+                if (getDirection() == RIGHT_DIR) {
                     idleforward.Update(System.nanoTime());
-                    idleforward.draw((int) (getPosX() - getGameWorld().camera.getPosX()), (int) getPosY() - (int) getGameWorld().camera.getPosY(), g2);
-                }else{
+                    idleforward.draw((int) (getPosX() - getGameWorld().camera.getPosX()),
+                            (int) getPosY() - (int) getGameWorld().camera.getPosY(), g2);
+
+                } else {
                     idleback.Update(System.nanoTime());
-                    idleback.draw((int) (getPosX() - getGameWorld().camera.getPosX()), (int) getPosY() - (int) getGameWorld().camera.getPosY(), g2);
+                    idleback.draw((int) (getPosX() - getGameWorld().camera.getPosX()),
+                            (int) getPosY() - (int) getGameWorld().camera.getPosY(), g2);
+
                 }
-            }else if(attackType[attackIndex].equals("shooting")){
-                
-                if(getDirection() == RIGHT_DIR){
+            } else if (attackType[attackIndex].equals("shooting")) {
+                if (getDirection() == RIGHT_DIR) {
                     shootingforward.Update(System.nanoTime());
-                    shootingforward.draw((int) (getPosX() - getGameWorld().camera.getPosX()), (int) getPosY() - (int) getGameWorld().camera.getPosY(), g2);
-                }else{
+                    shootingforward.draw((int) (getPosX() - getGameWorld().camera.getPosX()),
+                            (int) getPosY() - (int) getGameWorld().camera.getPosY(), g2);
+
+                } else {
                     shootingback.Update(System.nanoTime());
-                    shootingback.draw((int) (getPosX() - getGameWorld().camera.getPosX()), (int) getPosY() - (int) getGameWorld().camera.getPosY(), g2);
+                    shootingback.draw((int) (getPosX() - getGameWorld().camera.getPosX()),
+                            (int) getPosY() - (int) getGameWorld().camera.getPosY(), g2);
+
                 }
-                
-            }else if(attackType[attackIndex].equals("slide")){
-                if(getSpeedX() > 0){
+            } else if (attackType[attackIndex].equals("slide")) {
+                if (getSpeedX() > 0) {
                     slideforward.Update(System.nanoTime());
-                    slideforward.draw((int) (getPosX() - getGameWorld().camera.getPosX()), (int) getPosY() - (int) getGameWorld().camera.getPosY() + 50, g2);
-                }else{
+                    slideforward.draw((int) (getPosX() - getGameWorld().camera.getPosX()),
+                            (int) getPosY() - (int) getGameWorld().camera.getPosY() + 50, g2);
+
+                } else {
                     slideback.Update(System.nanoTime());
-                    slideback.draw((int) (getPosX() - getGameWorld().camera.getPosX()), (int) getPosY() - (int) getGameWorld().camera.getPosY() + 50, g2);
+                    slideback.draw((int) (getPosX() - getGameWorld().camera.getPosX()),
+                            (int) getPosY() - (int) getGameWorld().camera.getPosY() + 50, g2);
+
                 }
             }
 

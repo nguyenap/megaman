@@ -23,7 +23,7 @@ public class GameWorld {
     public Megaman megaman;
     public PhysicalMap physicalMap;
 
-    public BackgroundMap backgoundMap;
+    public BackgroundMap backgroundMap;
 
     public BulletManager bulletManager;
 
@@ -69,7 +69,7 @@ public class GameWorld {
         texts1[1] = "There was a Monster form University on Earth for 10 years\n"
                 + "and we leved int the scare for 10 years...";
         texts1[2] = "Now is the time for us, kill them and freedom!";
-        texts1[3] = "LET'S GO";
+        texts1[3] = "Legend never die....LET'S GO! ";
         textTutorial = texts1[0];
 
         bufferedImage = new BufferedImage(GameFrame.SCREEN_WIDTH, GameFrame.SCREEN_HEIGHT, BufferedImage.TYPE_INT_ARGB);
@@ -77,7 +77,7 @@ public class GameWorld {
         megaman = new Megaman(300, 300, this);
         megaman.setTeamType(ParticularObject.LEAGUE_TEAM);
         physicalMap = new PhysicalMap(0, 0, this);// nhân vật tương tác với map
-        backgoundMap = new BackgroundMap(0, 0, this);// chỉ dùng để vẽ (ghép ảnh)
+        backgroundMap = new BackgroundMap(0, 0, this);// chỉ dùng để vẽ (ghép ảnh)
 
         camera = new Camera(0, 0, GameFrame.SCREEN_WIDTH, GameFrame.SCREEN_HEIGHT, this);
 
@@ -107,7 +107,7 @@ public class GameWorld {
         redeye3.setTeamType(ParticularObject.ENEMY_TEAM);
         particularObjectManager.addObject(redeye3);
 
-        ParticularObject redeye4 = new RedEyeDevil(5000, 1190, this);
+        ParticularObject redeye4 = new RedEyeDevil(500, 1190, this);
         redeye4.setDirection(ParticularObject.RIGHT_DIR);
         redeye4.setTeamType(ParticularObject.ENEMY_TEAM);
         particularObjectManager.addObject(redeye4);
@@ -167,7 +167,7 @@ public class GameWorld {
                         storyTutorial++;
                     }
                 } else {
-                    if (currentSize > textTutorial.length()) {
+                    if (currentSize < textTutorial.length()) {
                         currentSize++;
                     }
                 }
@@ -198,10 +198,10 @@ public class GameWorld {
                         physicalMap.phys_map[16][120] = 1;
                         physicalMap.phys_map[17][120] = 1;
 
-                        backgoundMap.map[14][120] = 17;
-                        backgoundMap.map[15][120] = 17;
-                        backgoundMap.map[16][120] = 17;
-                        backgoundMap.map[17][120] = 17;
+                        backgroundMap.map[14][120] = 17;
+                        backgroundMap.map[15][120] = 17;
+                        backgroundMap.map[16][120] = 17;
+                        backgroundMap.map[17][120] = 17;
                     }
 
                 } else {
@@ -315,7 +315,7 @@ public class GameWorld {
                     g2.drawString("Press enter to continue", 400, 300);
                     break;
                 case TUTORIAL:
-                    backgoundMap.draw(g2);
+                    backgroundMap.draw(g2);
                     if (tutorialState == MEETFINALBOSS) {
                         particularObjectManager.draw(g2);
                     }
@@ -324,7 +324,7 @@ public class GameWorld {
                     break;
                 case GAMEWIN:
                 case GAMEPLAY:
-                    backgoundMap.draw(g2);
+                    backgroundMap.draw(g2);
                     particularObjectManager.draw(g2);
                     bulletManager.draw(g2);
                     

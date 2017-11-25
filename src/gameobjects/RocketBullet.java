@@ -47,15 +47,14 @@ public class RocketBullet extends Bullet {
                 forwardBulletAnimUp.draw((int) (getPosX() - getGameWorld().camera.getPosX()), (int) getPosY() - (int) getGameWorld().camera.getPosY(), g2);
             }
         } else {
-            if (getSpeedY() > 0) {
                 if (getSpeedY() > 0) {
                     backBulletAnimDown.draw((int) (getPosX() - getGameWorld().camera.getPosX()), (int) getPosY() - (int) getGameWorld().camera.getPosY(), g2);
                 } else if (getSpeedY() < 0) {
                     backBulletAnimUp.draw((int) (getPosX() - getGameWorld().camera.getPosX()), (int) getPosY() - (int) getGameWorld().camera.getPosY(), g2);
                 }else
                     backBulletAnim.draw((int) (getPosX() - getGameWorld().camera.getPosX()), (int) getPosY() - (int) getGameWorld().camera.getPosY(), g2);
-            }
         }
+        //drawBoundForCollisionWithEnemy(g2);
     }
 
     private void changeSpeedY(){// xác định hương bay của viên đạn
